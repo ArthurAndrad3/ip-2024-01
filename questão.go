@@ -2,13 +2,26 @@ package main
 
 import "fmt"
 
-func main() {
-	var n [3]float64
-	var media float64
-	for i := 0; i < 3; i++ {
-		fmt.Print("Digite um número: ")
-		fmt.Scan(&n[i])
-		media += n[i] / 3
+func busca(vetor []int, x int) int {
+	for i := 0; i < len(vetor); i++ {
+		if x == vetor[i] {
+			return i
+		}
 	}
-	fmt.Printf("Media: %.2f\n", media)
+	return -1
+}
+
+func main() {
+	var N int
+	fmt.Scan(&N)
+	vetor := make([]int, N)
+	for i := 0; i < N; i++ {
+		fmt.Scan(&vetor[i])
+	}
+
+	var Bu int
+	fmt.Scan(&Bu)
+
+	posicao := busca(vetor, Bu)
+	fmt.Print(posicao)
 }
